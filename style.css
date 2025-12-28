@@ -1,4 +1,3 @@
-/* Reset basic */
 * {
     margin: 0;
     padding: 0;
@@ -10,31 +9,62 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f3e5f5; /* Warna Lavender lembut */
+    background: #f3e5f5; /* Lavender Background */
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
+    perspective: 1000px; /* Untuk efek 3D flip */
 }
 
-/* Kotak Kad Glassmorphism (Efek Kaca) */
+/* Card Container (untuk centerkan) */
+.card-container {
+    width: 320px;
+    height: 400px; /* Tinggi kad */
+    position: relative;
+    z-index: 10;
+}
+
+/* The Card Itself */
 .card {
-    background: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    cursor: pointer;
+    position: relative;
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 25px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.7); /* Efek Kaca */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 40px 30px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 350px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    z-index: 10;
-    margin: 20px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
 }
 
 h1 {
     color: #6a1b9a;
     font-size: 26px;
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 p {
@@ -57,6 +87,7 @@ p {
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+    margin-top: 20px; /* Jarak dari teks */
 }
 
 .wa-btn:hover {
