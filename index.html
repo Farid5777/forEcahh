@@ -3,45 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Ecahh!</title>
+    <title>For Ecahh ✨</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="hearts">
-        <div class="heart" style="left: 10%; width: 20px; height: 20px; animation-delay: 0s;"></div>
-        <div class="heart" style="left: 25%; width: 50px; height: 50px; animation-delay: 2s;"></div>
-        <div class="heart" style="left: 55%; width: 40px; height: 40px; animation-delay: 1s;"></div>
-        <div class="heart" style="left: 85%; width: 60px; height: 60px; animation-delay: 5s;"></div>
-    </div>
-
-    <div class="envelope" id="envelope">
+    <div class="container">
         <div class="card">
-            <h1>Happy Birthday, Ecahh! 🎂</h1>
-            <p>This is a small surprise for you. Open it with a smile! ✨</p>
-            <a href="https://wa.me/60178640057?text=So%20yeah...%20I%20hope%20you%20like%20it...%20The%20reason%20I%20asked%20you%20your%20fav%20color%20was%20because%20I%20wanted%20to%20do%20this%20surprise!%20✨" class="wa-btn">
-                Reply kat WhatsApp
-            </a>
+            <div class="content">
+                <h1>Happy Birthday, Ecahh! 🎂</h1>
+                <p>This is a small surprise for you. Open it with a smile! ✨</p>
+                
+                <a href="https://wa.me/60178640057?text=So%20yeah...%20I%20hope%20you%20like%20it...%20The%20reason%20I%20asked%20you%20your%20fav%20color%20was%20because%20I%20wanted%20to%20do%20this%20surprise!%20✨" class="wa-btn">
+                    Reply kat WhatsApp
+                </a>
+            </div>
         </div>
     </div>
 
-    <audio id="myAudio" loop>
-        <source src="lagu.mp3" type="audio/mpeg">
-    </audio>
-
-    <script>
-        const envelope = document.getElementById('envelope');
-        const audio = document.getElementById("myAudio");
-        let isOpen = false;
-
-        envelope.addEventListener('click', () => {
-            envelope.classList.toggle('open');
-            if (!isOpen) {
-                audio.play();
-                isOpen = true;
-            }
-        });
-    </script>
 </body>
 </html>
