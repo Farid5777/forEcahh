@@ -3,18 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Ecahh ✨</title>
+    <title>Surprise for Ecahh ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <div class="card">
-            <div class="content">
-                <h1>Happy Birthday, Ecahh! 🎂</h1>
-                <p>This is a small surprise for you. Open it with a smile! ✨</p>
-                
+    <div id="overlay">
+        <div class="popout">
+            <video id="messengerVid" width="200" autoplay muted loop>
+                <source src="animation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2>Incoming Message! 💌</h2>
+            <p>Do you want to open this special file?</p>
+            <div class="btn-group">
+                <button onclick="revealCard()" class="btn-yes">Yes, open it!</button>
+                <button onclick="sayNo()" class="btn-no">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hearts hidden">
+        <div class="heart" style="left: 10%; width: 20px; height: 20px; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 30%; width: 40px; height: 40px; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 60%; width: 15px; height: 15px; animation-delay: 4s;"></div>
+        <div class="heart" style="left: 80%; width: 50px; height: 50px; animation-delay: 1s;"></div>
+    </div>
+
+    <div id="mainContent" class="hidden">
+        <div class="envelope" id="envelope">
+            <div class="card-inside">
+                <p class="wish">Happy Birthday, Ecahh! 🎂</p>
+                <div class="cake">
+                    <div class="top-layer"></div>
+                    <div class="middle-layer"></div>
+                    <div class="bottom-layer"></div>
+                    <div class="candle"></div>
+                </div>
                 <a href="https://wa.me/60178640057?text=So%20yeah...%20I%20hope%20you%20like%20it...%20The%20reason%20I%20asked%20you%20your%20fav%20color%20was%20because%20I%20wanted%20to%20do%20this%20surprise!%20✨" class="wa-btn">
                     Reply kat WhatsApp
                 </a>
@@ -22,5 +48,26 @@
         </div>
     </div>
 
+    <audio id="myAudio" loop>
+        <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function sayNo() {
+            alert("Wrong answer! Try again... 😜");
+        }
+
+        function revealCard() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('mainContent').classList.remove('hidden');
+            document.querySelector('.hearts').classList.remove('hidden');
+            document.getElementById('myAudio').play();
+        }
+
+        // Buka sampul bila klik
+        document.getElementById('envelope').addEventListener('click', function() {
+            this.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
