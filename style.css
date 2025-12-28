@@ -1,131 +1,65 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    height: 100vh; display: flex; justify-content: center; align-items: center; 
+    background: #f3e5f5; font-family: 'Poppins', sans-serif; overflow: hidden;
 }
 
-body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f3e5f5; /* Lavender Background */
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
-    perspective: 1000px; /* Untuk efek 3D flip */
-}
-
-/* Card Container (untuk centerkan) */
-.card-container {
-    width: 320px;
-    height: 400px; /* Tinggi kad */
+.envelope {
+    width: 300px; height: 200px;
+    background: #ce93d8; /* Warna ungu pekat sikit */
     position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border-radius: 0 0 10px 10px;
     z-index: 10;
 }
 
-/* The Card Itself */
+/* Penutup envelope */
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #ba68c8;
+    transition: all 0.5s ease;
+    z-index: 15;
+}
+
+.envelope.open::before {
+    transform: rotateX(180deg);
+    transform-origin: top;
+}
+
 .card {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-    cursor: pointer;
-    position: relative;
-}
-
-.card.is-flipped {
-    transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 25px;
-    padding: 40px 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    bottom: 0; left: 10px;
+    width: 280px; height: 180px;
+    background: white;
+    padding: 20px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.7); /* Efek Kaca */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    z-index: 5;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
 }
 
-.card-back {
-    transform: rotateY(180deg);
+.envelope.open .card {
+    transform: translateY(-120px); /* Kad keluar ke atas */
+    height: auto;
+    min-height: 250px;
 }
 
-h1 {
-    color: #6a1b9a;
-    font-size: 26px;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
+h1 { color: #6a1b9a; font-size: 18px; margin-bottom: 10px; }
+p { color: #4a148c; font-size: 14px; line-height: 1.4; margin-bottom: 15px; }
 
-p {
-    color: #4a148c;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    font-weight: 400;
-}
-
-/* Butang WhatsApp */
-.wa-btn {
+.wa-btn { 
     display: inline-block;
-    padding: 12px 25px;
-    background: #9c27b0;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
-    margin-top: 20px; /* Jarak dari teks */
+    padding: 8px 15px; background: #9c27b0; color: white !important; 
+    text-decoration: none; border-radius: 50px; font-size: 12px; font-weight: bold;
 }
 
-.wa-btn:hover {
-    background: #7b1fa2;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
-}
-
-/* Animasi Bulat-bulat/Hati terbang kat background */
-.hearts {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.heart {
-    position: absolute;
-    bottom: -100px;
-    background: rgba(156, 39, 176, 0.15); /* Ungu telus */
-    border-radius: 50%;
-    animation: floatUp 15s infinite linear;
-}
-
-@keyframes floatUp {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
+/* Heart Animation */
+.heart { position: absolute; bottom: -100px; background: rgba(156,39,176,0.2); border-radius: 50%; animation: floatUp 10s infinite linear; }
+@keyframes floatUp { to { transform: translateY(-110vh) rotate(360deg); } }
