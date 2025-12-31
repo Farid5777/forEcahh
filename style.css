@@ -192,19 +192,22 @@ body {
 
 /*UPDATE NEW FONT*/
 .font-lucida {
-    font-family: 'Great Vibes', cursive !important; /* Font ni gerenti berangkai kat phone */
+    /* Font same as lucida handwriting */
+    font-family: 'Great Vibes', cursive !important; 
     font-size: 24px !important; /* Naikkan saiz sikit sebab font ni halus */
     text-transform: none !important;
 }
 
 .font-comic {
-    font-family: 'Itim', cursive !important; /* Font ni rupa Comic Sans tapi jadi kat phone */
+    /* Font look like comic sans */
+    font-family: 'Itim', cursive !important;
     font-size: 16px !important;
     text-transform: none !important;
 }
 
 
     
+
 
 
 
