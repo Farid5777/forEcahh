@@ -190,3 +190,21 @@ body {
 
 .hidden { display: none; }
 
+/*UPDATE NEW FONT*/
+.font-lucida{
+    font-family:"Lucida Handwriting","Cursive", sans-serif!importand;
+    font-size:16px !important;
+    text-transform:none !important;
+}
+.font-comics{
+    font-family:"Comics Sans Ms","Comic Sans", cursive !important;
+    font-size:13px !important;
+    text-transform:none !important;
+}
+/*Butang WA x lari*/
+.wa-btn{
+    font-family:'Poppins',sans-serif !important;
+}
+    
+
+
